@@ -1,4 +1,4 @@
-module github.com/nrdcg/goinwx
+module github.com/gut-code/goinwx
 
 go 1.19
 
