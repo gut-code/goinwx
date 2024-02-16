@@ -153,7 +153,7 @@ func (s *NameserverService) CreateRecord(request *NameserverRecordRequest) (int,
 }
 
 // UpdateRecord updates a DNS record.
-func (s *NameserverService) UpdateRecord(recID int, request *NameserverRecordRequest) error {
+func (s *NameserverService) UpdateRecord(recID int, request *NameserverRecord) error {
 	if request == nil {
 		return errors.New("request can't be nil")
 	}
@@ -285,18 +285,18 @@ type SlaveInfo struct {
 
 // NameserverRecord API model.
 type NameserverRecord struct {
-	ID                     int    `mapstructure:"id"`
-	Name                   string `mapstructure:"name"`
-	Type                   string `mapstructure:"type"`
-	Content                string `mapstructure:"content"`
-	TTL                    int    `mapstructure:"TTL"`
-	Priority               int    `mapstructure:"prio"`
-	URLAppend              bool   `mapstructure:"urlAppend,omitempty"`
-	URLRedirectType        string `mapstructure:"urlRedirectType"`
-	URLRedirectTitle       string `mapstructure:"urlRedirectTitle"`
-	URLRedirectDescription string `mapstructure:"urlRedirectDescription"`
-	URLRedirectKeywords    string `mapstructure:"urlRedirectKeywords"`
-	URLRedirectFavIcon     string `mapstructure:"urlRedirectFavIcon"`
+	ID                     int    `structs:"id"`
+	Name                   string `structs:"name"`
+	Type                   string `structs:"type"`
+	Content                string `structs:"content"`
+	TTL                    int    `structs:"TTL"`
+	Priority               int    `structs:"prio"`
+	URLAppend              bool   `structs:"urlAppend,omitempty"`
+	URLRedirectType        string `structs:"urlRedirectType,omitempty"`
+	URLRedirectTitle       string `structs:"urlRedirectTitle,omitempty"`
+	URLRedirectDescription string `structs:"urlRedirectDescription,omitempty"`
+	URLRedirectFavIcon     string `structs:"urlRedirectFavIcon,omitempty"`
+	URLRedirectKeywords    string `structs:"urlRedirectKeywords,omitempty"`
 }
 
 // NameserverListRequest API model.
